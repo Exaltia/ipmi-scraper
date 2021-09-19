@@ -20,6 +20,9 @@ stdin.write('\r\n')
 #sleep(10)
 #output = remote_con.recv(10000)
 ignore_start = 424
+#We ignore a few bytes before the bios is really displayed.
+#We don't trash it, as it can probably be used to detect display type
+#I hope every lanplus display in the same manner
 trash = stdout.read(ignore_start)
 onepage = stdout.read(15360) #Todo: value is almost one page, need to be corrected
 #Should be 80 characters * 24 lines * 8 bytes
